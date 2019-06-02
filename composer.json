@@ -1,0 +1,35 @@
+{
+    "name": "phbsis/iterable-utils",
+    "description": "Lib com algumas funções para o tratamento de arrays",
+    "homepage": "https://github.com/br-monteiro/iterable-utils",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Edson B S Monteiro",
+            "email": "bruno.monteirodg@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^3.4",
+        "phpunit/phpunit": "^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "HTR\\Utils\\Iterables\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": ["phpunit"]
+    }
+}
