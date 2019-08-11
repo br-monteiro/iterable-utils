@@ -131,4 +131,23 @@ class IterableUtils
 
         return null;
     }
+
+    /**
+     * The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value
+     *
+     * @param array $arr The array to be used
+     * @param callable $callback The callback executed on each element of the array
+     * @param midex $default The default entry value
+     * @return midex
+     */
+    public static function reduce(array $arr, callable $callback, $default = null)
+    {
+        $acc = $default;
+
+        foreach ($arr as $index => $value) {
+            $acc = $callback($acc, $value, $index);
+        }
+
+        return $acc;
+    }
 }
