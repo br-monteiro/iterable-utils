@@ -19,12 +19,12 @@ class IterableUtilsTest extends PHPUnit
 
     public function testSmokeTestForIterableUtilsClass()
     {
-        $this->assertEquals(true, class_exists(IterableUtils::class), 'It Should be return true if class exists');
+        $this->assertEquals(true, class_exists(IterableUtils::class), 'It Should be returns true if class exists');
     }
 
     public function testSmokeTestForMapMethod()
     {
-        $this->assertEquals(true, method_exists(IterableUtils::class, 'map'), 'It should be return true if method exists');
+        $this->assertEquals(true, method_exists(IterableUtils::class, 'map'), 'It should be returns true if method exists');
     }
 
     public function testReturnDoubleOfNumbersAccordingCallback()
@@ -36,7 +36,7 @@ class IterableUtilsTest extends PHPUnit
 
         $arrResult = IterableUtils::map($this->arrayNumbersMock, $callback);
 
-        $this->assertEquals($arrExepected, $arrResult, 'It should be return an array with double values of numbers');
+        $this->assertEquals($arrExepected, $arrResult, 'It should be returns an array with double values');
     }
 
     public function testReturnUppercaseLettersAccordingCallback()
@@ -48,7 +48,7 @@ class IterableUtilsTest extends PHPUnit
 
         $arrResult = IterableUtils::map($this->arrayLettersMock, $callback);
 
-        $this->assertEquals($arrExepected, $arrResult, 'It should be return an array with the letters in uppercase');
+        $this->assertEquals($arrExepected, $arrResult, 'It should be returns an array with the letters in uppercase');
     }
 
     public function testReturnUppercaseLettersConcatenatedWithIndexAccordingCallback()
@@ -60,19 +60,19 @@ class IterableUtilsTest extends PHPUnit
 
         $arrResult = IterableUtils::map($this->arrayLettersMock, $callback);
 
-        $this->assertEquals($arrExepected, $arrResult, 'It should be return an array with the letters in uppercase concatenated with index');
+        $this->assertEquals($arrExepected, $arrResult, 'It should be returns an array with the letters in uppercase concatenated with index');
     }
 
     public function testReturnArrayWithNullInContentsWhenNoHaveReturnOnCallback()
     {
         $arrExepected = [null, null, null, null, null];
         $callback = function($value) {
-            // no have return
+            // there's no 'return'
         };
 
         $arrResult = IterableUtils::map($this->arrayNumbersMock, $callback);
 
-        $this->assertEquals($arrExepected, $arrResult, 'It should be return an array with null values when no have return on callback');
+        $this->assertEquals($arrExepected, $arrResult, "It should be returns an array with null values when there's no on callback");
     }
 
     public function testReturnAnEmptyArrayWhenAnEmptyArrayIsPassed()
@@ -84,12 +84,12 @@ class IterableUtilsTest extends PHPUnit
 
         $arrResult = IterableUtils::map([], $callback);
 
-        $this->assertEquals($arrExepected, $arrResult, 'It should be return an empty array');
+        $this->assertEquals($arrExepected, $arrResult, 'It should be returns an empty array');
     }
 
     public function testSmokeTestForFindMethod()
     {
-        $this->assertEquals(true, method_exists(IterableUtils::class, 'find'), 'It should be return true if the find method exists');
+        $this->assertEquals(true, method_exists(IterableUtils::class, 'find'), 'It should be returns true if the find method exists');
     }
 
     public function testReturnAnResultIfTheConditionOfCallbackIsTruly()
@@ -101,7 +101,7 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::find($this->arrayWordsMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return "dolor"');
+        $this->assertEquals($exepected, $result, 'It should be returns "dolor"');
     }
 
     public function testReturnNullWhenTheConditionIsNotSatisfactory()
@@ -113,7 +113,7 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::find($this->arrayWordsMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return null when the condition is not satisfactory');
+        $this->assertEquals($exepected, $result, 'It should be returns null when the condition is not satisfactory');
     }
 
     public function testReturnNullWhenAnEmptyArrayIsPassed()
@@ -125,12 +125,12 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::find([], $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return null when an empty array is passed');
+        $this->assertEquals($exepected, $result, 'It should be returns null when an empty array is passed');
     }
 
     public function testSmokeTestForFilterMethod()
     {
-        $this->assertEquals(true, method_exists(IterableUtils::class, 'filter'), 'It should be return true if the filter method exists');
+        $this->assertEquals(true, method_exists(IterableUtils::class, 'filter'), 'It should be returns true if the filter method exists');
     }
 
     public function testReturnFilteredArrayAccordingCallback()
@@ -142,8 +142,8 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::filter($this->arrayNumbersMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return an array with odd numbers');
-        ////
+        $this->assertEquals($exepected, $result, 'It should be returns an array with odd numbers');
+
         $exepected = ['lorem', 'ipsum'];
         $callback = function($value) {
             return (bool) preg_match('/.*m$/', $value);
@@ -151,24 +151,24 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::filter($this->arrayWordsMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return an array with lorem, ipsum values');
+        $this->assertEquals($exepected, $result, 'It should be returns an array with lorem, ipsum values');
     }
 
     public function testReturnAnEmptyArrayWhenTheCallbackNoHaveReturn()
     {
         $exepected = [];
         $callback = function($value) {
-            // no have return
+            // there's no 'return'
         };
 
         $result = IterableUtils::filter($this->arrayNumbersMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return an empty array');
+        $this->assertEquals($exepected, $result, 'It should be returns an empty array');
     }
 
     public function testSmokeTestForOnlyMethod()
     {
-        $this->assertEquals(true, method_exists(IterableUtils::class, 'only'), 'It should be return true if the only method exists');
+        $this->assertEquals(true, method_exists(IterableUtils::class, 'only'), 'It should be returns true if the only method exists');
     }
 
     public function testReturnTrueIfValueExistsOnceInArray()
@@ -180,7 +180,7 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::only($this->arrayLettersMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return true if the condition of callback is accepted');
+        $this->assertEquals($exepected, $result, 'It should be returns true if the condition of callback is accepted');
     }
 
     public function testReturnFalseIfValueNotExistsOnceInArray()
@@ -192,7 +192,7 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::only($this->arrayLettersMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return false if the condition of callback is not accepted');
+        $this->assertEquals($exepected, $result, 'It should be returns false if the condition of callback is not accepted');
     }
 
     public function testReturnFalseIfInArrayContainsOneOrMoreValuesEqual()
@@ -206,24 +206,24 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::only($arrWithTwoC, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return false if exists one or more values equal in array');
+        $this->assertEquals($exepected, $result, 'It should be returns false if exists one or more values equal in array');
     }
 
     public function testReturnFalseWhenTheCallbackNoHaveReturn()
     {
         $exepected = false;
         $callback = function($value) {
-            // no have return
+            // there's no 'return'
         };
 
         $result = IterableUtils::only($this->arrayLettersMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return false when in callback no have returns');
+        $this->assertEquals($exepected, $result, "It should be returns false when in callback there's nos");
     }
 
     public function testSmokeTestForInAllMethod()
     {
-        $this->assertEquals(true, method_exists(IterableUtils::class, 'even'), 'It should be return true if the even method exists');
+        $this->assertEquals(true, method_exists(IterableUtils::class, 'even'), 'It should be returns true if the even method exists');
     }
 
     public function testReturnFalseWhenAnEmptyArrayIsPassedByParameter()
@@ -237,7 +237,7 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::even($arrMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return false when an empty array is passed by parameter');
+        $this->assertEquals($exepected, $result, 'It should be returns false when an empty array is passed by parameter');
     }
 
     public function testReturnFalseTheCallbackPassedByParameterInInAllNoHaveReturn()
@@ -245,12 +245,12 @@ class IterableUtilsTest extends PHPUnit
         $exepected = false;
 
         $callback = function($value) {
-            // no have return
+            // there's no 'return'
         };
 
         $result = IterableUtils::even($this->arrayNumbersMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return false when the callback no have return');
+        $this->assertEquals($exepected, $result, "It should be returns false when the callback there's no");
     }
 
     public function testReturnTrueIfTheValueExistsInAllElementsOfArrayAccordingCallbackConditions()
@@ -270,7 +270,7 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::even($arrMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return true if the value exists in all elements of array');
+        $this->assertEquals($exepected, $result, 'It should be returns true if the value exists in all elements of array');
     }
 
     public function testReturnFalseIfTheValueNotExistsInAllElementsOfArrayAccordingCallbackConditions()
@@ -285,17 +285,17 @@ class IterableUtilsTest extends PHPUnit
         }
 
         $callback = function($value) {
-            return $value->attribA === 'not exists in attribute A';
+            return $value->attribA === "there's no attribute in A";
         };
 
         $result = IterableUtils::even($arrMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return false if the value not exists in all elements of array');
+        $this->assertEquals($exepected, $result, 'It should be returns false if the value not exists in all elements of array');
     }
 
     public function testSmokeTestForLastMethod()
     {
-        $this->assertEquals(true, method_exists(IterableUtils::class, 'last'), 'It should be return true if the last method exists');
+        $this->assertEquals(true, method_exists(IterableUtils::class, 'last'), 'It should be returns true if the last method exists');
     }
 
     public function testReturnTheLastValueFound()
@@ -314,7 +314,7 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::last($arrMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return ["B", 4] if this is the last element found');
+        $this->assertEquals($exepected, $result, 'It should be returns ["B", 4] if this is the last element found');
     }
 
     public function testReturnNullIfTheElementIsNotFound()
@@ -327,7 +327,7 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::last($this->arrayLettersMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return null if the element is not found');
+        $this->assertEquals($exepected, $result, 'It should be returns null if the element is not found');
     }
 
     public function testReturnNullWhenEmptyArrayIsPassedByParameter()
@@ -341,7 +341,7 @@ class IterableUtilsTest extends PHPUnit
 
         $result = IterableUtils::last($arrMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return null when an empty array is passed by parameter');
+        $this->assertEquals($exepected, $result, 'It should be returns null when an empty array is passed by parameter');
     }
 
     public function testReturnNullWhenTheCallbackNoHaveReturn()
@@ -349,11 +349,11 @@ class IterableUtilsTest extends PHPUnit
         $exepected = null;
 
         $callback = function($value) {
-            // no have return
+            // there's no 'return'
         };
 
         $result = IterableUtils::last($this->arrayNumbersMock, $callback);
 
-        $this->assertEquals($exepected, $result, 'It should be return null when the callback no have return');
+        $this->assertEquals($exepected, $result, "It should be returns null when the callback there's no");
     }
 }
