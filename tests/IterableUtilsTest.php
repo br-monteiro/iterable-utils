@@ -356,4 +356,53 @@ class IterableUtilsTest extends PHPUnit
 
         $this->assertEquals($exepected, $result, "It should be returns null when the callback there's no");
     }
+
+    public function testSmokeTestForReduceMethod()
+    {
+        $this->assertEquals(true, method_exists(IterableUtils::class, 'reduce'), 'It should be returns true if the reduce method exists');
+    }
+
+    public function testReturnsNullWhenTheresNoReturnInCallback()
+    {
+        $exepected = null;
+
+        $callback = function($acc, $value, $index) {
+            // there's no return
+        };
+
+        $result = IterableUtils::reduce($this->arrayNumbersMock, $callback);
+
+        $this->assertEquals($exepected, $result, "It should be returns null when the callback there's no return");
+    }
+
+    public function testReturnsAllLettersConcatenate()
+    {
+        $exepected = 'ABCDE';
+
+        $callback = function($acc, $value) {
+            return $acc . strtoupper($value);
+        };
+
+        $result = IterableUtils::reduce($this->arrayLettersMock, $callback);
+
+        $this->assertEquals($exepected, $result, 'It should be returns all letters concatenate in uppercase');
+    }
+
+    public function testReturnsHTR()
+    {
+        $exepected = '0-H3-T5-R';
+
+        $mock = ['h', 'e', 'i', 't', 'o', 'r'];
+
+        $callback = function($acc, $value, $index) {
+            if (in_array($value, ['h', 't', 'r'])) {
+                $acc .= $index . '-' . strtoupper($value);
+            }
+            return $acc;
+        };
+
+        $result = IterableUtils::reduce($mock, $callback);
+
+        $this->assertEquals($exepected, $result, 'It should be returns htr in uppercase with index');
+    }
 }
