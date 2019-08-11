@@ -21,6 +21,7 @@ $ composer test
 - even
 - only
 - last
+- reduce
 
 ### Características comuns dos métodos
 
@@ -488,6 +489,79 @@ array(2) {
   ["rodas"]=>
   int(4)
 }
+```
+
+
+### Método reduce
+
+O método reduce(...) executa uma função `reducer` (callback) para cada elemento do array, resultando num único valor de retorno. Abaixo é possível observar algumas formas de uso do método reduce.
+
+__Sintaxe:__
+
+```php
+reduce(array $arr, callable $callback, $default);
+```
+
+__$arr__
+
+Array a ser usado pelo método
+
+__$callback__
+
+Esta função deve retornar o resultado da lógica de redução aplicada no elemento corrente do array. Esta função recebe três parâmetros:
+ - `$acc`: valor das reduções anteriores
+ - `$value`: valor do elemento corrente
+ - `$index`: valor do index do elemento corrente
+
+__$default__
+
+Valor padrão de entrada para `$acc`. Caso a lógica não seja aplicada a nenhum elemento do array, este valor será retornado por padrão. Caso não seja passado nenhum valor para este parâmetro, então `null` é considerado como padrão.
+
+__retorno__
+
+Deve retornar o valor da redução aplicada pela lógica do callback.
+
+__Exemplo__
+
+```php
+use HTR\Utils\Iterables\IterableUtils as it;
+
+$arr = ['h', 'e', 'i', 't', 'o', 'r'];
+
+$result = it::reduce($arr, function($acc, $value) {
+    return $acc . strtoupper($value);
+});
+
+var_dump($result);
+```
+
+A saída da execução acima se parece com o seguinte
+
+```bash
+string(6) "HEITOR"
+```
+
+__Exemplo__
+
+```php
+use HTR\Utils\Iterables\IterableUtils as it;
+
+$arr = ['h', 'e', 'i', 't', 'o', 'r'];
+
+$result = it::reduce($arr, function($acc, $value, $index) {
+    if (in_array($value, ['h', 't', 'r'])) {
+        $acc .= $index . '-' . strtoupper($value);
+    }
+    return $acc;
+});
+
+var_dump($result);
+```
+
+A saída da execução acima se parece com o seguinte
+
+```bash
+string(9) "0-H3-T5-R"
 ```
 
 ### Créditos
