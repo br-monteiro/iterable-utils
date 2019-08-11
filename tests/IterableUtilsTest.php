@@ -63,7 +63,7 @@ class IterableUtilsTest extends PHPUnit
         $this->assertEquals($arrExepected, $arrResult, 'It should be returns an array with the letters in uppercase concatenated with index');
     }
 
-    public function testReturnArrayWithNullInContentsWhenNoHaveReturnOnCallback()
+    public function testReturnArrayWithNullInContentsWhenTheresNoReturnOnCallback()
     {
         $arrExepected = [null, null, null, null, null];
         $callback = function($value) {
@@ -154,7 +154,7 @@ class IterableUtilsTest extends PHPUnit
         $this->assertEquals($exepected, $result, 'It should be returns an array with lorem, ipsum values');
     }
 
-    public function testReturnAnEmptyArrayWhenTheCallbackNoHaveReturn()
+    public function testReturnAnEmptyArrayWhenTheCallbackTheresNoReturn()
     {
         $exepected = [];
         $callback = function($value) {
@@ -209,7 +209,7 @@ class IterableUtilsTest extends PHPUnit
         $this->assertEquals($exepected, $result, 'It should be returns false if exists one or more values equal in array');
     }
 
-    public function testReturnFalseWhenTheCallbackNoHaveReturn()
+    public function testReturnFalseWhenTheCallbackTheresNoReturn()
     {
         $exepected = false;
         $callback = function($value) {
@@ -240,7 +240,7 @@ class IterableUtilsTest extends PHPUnit
         $this->assertEquals($exepected, $result, 'It should be returns false when an empty array is passed by parameter');
     }
 
-    public function testReturnFalseTheCallbackPassedByParameterInInAllNoHaveReturn()
+    public function testReturnFalseTheCallbackPassedByParameterInInAllTheresNoReturn()
     {
         $exepected = false;
 
@@ -344,7 +344,7 @@ class IterableUtilsTest extends PHPUnit
         $this->assertEquals($exepected, $result, 'It should be returns null when an empty array is passed by parameter');
     }
 
-    public function testReturnNullWhenTheCallbackNoHaveReturn()
+    public function testReturnNullWhenTheCallbackTheresNoReturn()
     {
         $exepected = null;
 
