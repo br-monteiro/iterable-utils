@@ -10,7 +10,7 @@ class IterableUtilsTest extends PHPUnit
     protected $arrayWordsMock = [];
     protected $arrayLettersMock = [];
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->arrayNumbersMock = [1, 2, 3, 4, 5];
         $this->arrayWordsMock = ['lorem', 'ipsum', 'dolor', 'sit', 'amet'];
