@@ -25,7 +25,7 @@ $ composer test
 
 ### Características comuns dos métodos
 
-Todos os métodos recebem como parâmetro um Array e um callbak, que é uma função do tipo callable. Essa função de callback receberá por padrão como parâmetro o valor do elemento atual do array e seu índice. Por exemplo:
+Todos os métodos recebem como parâmetro um `Array` e um `callbak`, que é uma função do tipo `callable`. Essa função de callback receberá por padrão como parâmetro o valor do elemento atual do array e seu índice. Por exemplo:
 
 ```php
 function($value, $index) {
@@ -36,11 +36,12 @@ function($value, $index) {
 ### Método map
 
 O método map(...) é usado nos casos onde precisamos percorrer todo o array e alterar todos ou determinados elementos, de acordo com o callback passado como parâmetro. Abaixo é possível observar algumas formas de uso do método map.
+Após a exeução, o `map` retorna um novo `array` com os itens mapeados pela função `callback`
 
 __Sintaxe:__
 
 ```php
-map(array $arr, callable $callback);
+map(array $arr, callable $callback): Array;
 ```
 
 __$arr__
@@ -53,7 +54,7 @@ Esta função deve processar o elemento recebido por parâmetro e retornar o res
 
 __retorno__
 
-Retorna um array com os elementos processados pelo método, de acordo com o callbak passado por parâmetro.
+Retorna um novo array com os elementos processados pelo método, de acordo com o callbak passado por parâmetro.
 
 __Exemplo 01__
 
@@ -141,7 +142,7 @@ O método find(...) é usado nos casos onde precisamos econtrar a primeira ocorr
 __Sintaxe:__
 
 ```php
-find(array $arr, callable $callback);
+find(array $arr, callable $callback): mixed;
 ```
 
 __$arr__
@@ -194,7 +195,7 @@ O método filter(...) é usado nos casos onde precisamos filtrar os elementos de
 __Sintaxe:__
 
 ```php
-filter(array $arr, callable $callback);
+filter(array $arr, callable $callback): array;
 ```
 
 __$arr__
@@ -297,7 +298,7 @@ O método even(...) é usado nos casos onde precisamos validar que todos os elem
 __Sintaxe:__
 
 ```php
-even(array $arr, callable $callback);
+even(array $arr, callable $callback): bool;
 ```
 
 __$arr__
@@ -366,12 +367,12 @@ bool(false)
 
 ### Método only
 
-O método only(...) é usado nos casos onde precisamos validar que SOMENTE um dos elementos do array atendem a condição passada no callback.
+O método only(...) é usado nos casos onde precisamos validar que **SOMENTE** um dos elementos do array atendem a condição passada no callback.
 
 __Sintaxe:__
 
 ```php
-only(array $arr, callable $callback);
+only(array $arr, callable $callback): bool;
 ```
 
 __$arr__
@@ -384,7 +385,7 @@ Esta função deve retornar um valor booleano, onde __true__ significa que o ele
 
 __retorno__
 
-Retorna __true__ se APENAS UM dos elementos do array satisfizer a condição do callback. Retorna __false__ se  mais de um ou nenhum elemento satisfizer a condição do callback.
+Retorna __true__ se **APENAS UM** dos elementos do array satisfizer a condição do callback. Retorna __false__ se  mais de um ou nenhum elemento satisfizer a condição do callback.
 
 __Exemplo 01__
 
@@ -445,7 +446,7 @@ O método last(...) é usado nos casos onde precisamos econtrar a última ocorr�
 __Sintaxe:__
 
 ```php
-only(array $arr, callable $callback);
+only(array $arr, callable $callback): mixed;
 ```
 
 __$arr__
@@ -499,7 +500,7 @@ O método reduce(...) executa uma função `reducer` (callback) para cada elemen
 __Sintaxe:__
 
 ```php
-reduce(array $arr, callable $callback, $default);
+reduce(array $arr, callable $callback, $default): mixed;
 ```
 
 __$arr__
