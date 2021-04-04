@@ -4,7 +4,6 @@
     "homepage": "https://github.com/br-monteiro/iterable-utils",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
     "authors": [
         {
             "name": "Edson B S Monteiro",
