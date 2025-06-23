@@ -1,6 +1,6 @@
 # Iterable Utils
 
-[![PHP Unit Tests](https://github.com/br-monteiro/iterable-utils/actions/workflows/test.yml/badge.svg)](https://github.com/br-monteiro/iterable-utils/actions/workflows/test.yml)
+[![Unit Tests](https://github.com/br-monteiro/iterable-utils/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/br-monteiro/iterable-utils/actions/workflows/test.yml)
 
 Esta Lib reúne algumas funções úteis para o tratamento de `arrays`
 
